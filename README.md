@@ -2,6 +2,22 @@
 
 A mobile-first web application for managing driver attendance, advances, and salary settlements for small construction/logistics businesses in India.
 
+## 📖 Documentation
+
+**New to Sarathi?** Start with **[GET_STARTED.md](GET_STARTED.md)** for a 30-minute quick start guide.
+
+**⚠️ Important for Deployment:** See **[BUILD_NOTES.md](BUILD_NOTES.md)** for environment variable requirements.
+
+**All Documentation:**
+- 🚀 **[GET_STARTED.md](GET_STARTED.md)** - Quick start guide (start here!)
+- 📋 **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - One-page cheat sheet
+- 🔧 **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Detailed setup instructions
+- 💼 **[BUSINESS_LOGIC.md](BUSINESS_LOGIC.md)** - Salary calculation rules
+- 🚀 **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guide
+- ✅ **[TESTING_CHECKLIST.md](TESTING_CHECKLIST.md)** - Complete testing guide
+- 📊 **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Technical overview
+- 📚 **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Complete documentation index
+
 ## Features
 
 - **Driver Management**: Add and manage driver profiles with base salary and bhatta rates

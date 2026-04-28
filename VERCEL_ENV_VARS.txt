@@ -1,0 +1,37 @@
+VERCEL ENVIRONMENT VARIABLES
+============================
+
+Copy these values into Vercel Dashboard:
+Settings > Environment Variables
+
+Add for: Production, Preview, and Development
+
+
+Variable 1:
+-----------
+Name:  NEXT_PUBLIC_SUPABASE_URL
+Value: https://zddmupzjkdvxvsayyhae.supabase.co
+
+
+Variable 2:
+-----------
+Name:  NEXT_PUBLIC_SUPABASE_ANON_KEY
+Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpkZG11cHpqa2R2eHZzYXl5aGFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU0NTI4NTksImV4cCI6MjA1MTAyODg1OX0.sb_publishable_mYJSKpXZctN1iJay8iFGCA_wmP7XALp
+
+
+IMPORTANT:
+----------
+- Add these BEFORE deploying
+- Select all three environments (Production, Preview, Development)
+- Click "Save" after adding each variable
+- Then trigger a new deployment
+
+
+NEXT STEPS:
+-----------
+1. Go to Vercel Dashboard
+2. Select your project
+3. Go to Settings > Environment Variables
+4. Add both variables above
+5. Redeploy your project
+6. Your app will build successfully!

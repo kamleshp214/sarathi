@@ -1,5 +1,9 @@
 # Deployment Guide
 
+## Important: Environment Variables Required
+
+**Before deploying, you MUST set up environment variables in Vercel.** The build will fail without valid Supabase credentials.
+
 ## Deploy to Vercel (Recommended)
 
 Vercel is the easiest way to deploy Next.js apps and offers a generous free tier.

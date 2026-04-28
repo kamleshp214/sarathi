@@ -3,6 +3,8 @@ import { formatCurrency } from '@/lib/utils'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 async function getDriversWithStats() {
   const supabase = await createClient()
   
