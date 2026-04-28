@@ -3,6 +3,8 @@
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { Truck } from 'lucide-react'
+import RoadMotif from '@/components/RoadMotif'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,17 +36,25 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Sarathi</h1>
-          <p className="text-lg text-gray-600">Driver Management System</p>
+        {/* Header with Road Motif */}
+        <div className="text-center mb-8 relative">
+          <div className="relative h-16 mb-4">
+            <RoadMotif />
+            <div className="relative z-10 flex items-center justify-center gap-3 h-full">
+              <Truck className="text-orange-500" size={40} strokeWidth={2.5} />
+              <h1 className="text-5xl font-bold text-orange-500">SARATHI</h1>
+            </div>
+          </div>
+          <p className="text-lg text-slate-400">Driver Management System</p>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
+        {/* Login Card */}
+        <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6">
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-lg font-semibold text-gray-900 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">
                 Email
               </label>
               <input
@@ -53,13 +63,13 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                className="w-full h-14 px-4 bg-slate-700 border border-slate-600 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-lg font-semibold text-gray-900 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-slate-400 mb-2">
                 Password
               </label>
               <input
@@ -68,28 +78,28 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                className="w-full h-14 px-4 bg-slate-700 border border-slate-600 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 placeholder="Enter your password"
               />
             </div>
 
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                <p className="text-red-800 text-sm">{error}</p>
+              <div className="bg-red-500/10 border border-red-500/40 rounded-xl p-3">
+                <p className="text-red-400 text-sm">{error}</p>
               </div>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold active:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full h-14 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors btn-press"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
         </div>
 
-        <div className="mt-6 text-center text-sm text-gray-600">
+        <div className="mt-6 text-center text-sm text-slate-500">
           <p>For demo: Use your Supabase credentials</p>
         </div>
       </div>
