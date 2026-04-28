@@ -29,7 +29,7 @@ export async function POST() {
   // For each group with duplicates, keep the most recent, deactivate others
   const toDeactivate: string[] = []
   
-  Object.values(grouped).forEach((group: DriverType[]) => {
+  (Object.values(grouped) as DriverType[][]).forEach((group) => {
     if (group.length > 1) {
       // Keep the first one (most recent due to ordering), deactivate the rest
       group.slice(1).forEach((driver) => {
