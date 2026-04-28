@@ -16,6 +16,7 @@ export async function POST() {
   }
 
   // Group by name (case-insensitive)
+  type DriverType = typeof drivers[number]
   const grouped = drivers.reduce((acc, driver) => {
     const key = driver.name.toLowerCase()
     if (!acc[key]) {
@@ -23,12 +24,12 @@ export async function POST() {
     }
     acc[key].push(driver)
     return acc
-  }, {} as Record<string, typeof drivers>)
+  }, {} as Record<string, DriverType[]>)
 
   // For each group with duplicates, keep the most recent, deactivate others
   const toDeactivate: string[] = []
   
-  Object.values(grouped).forEach((group) => {
+  Object.values(grouped).forEach((group: DriverType[]) => {
     if (group.length > 1) {
       // Keep the first one (most recent due to ordering), deactivate the rest
       group.slice(1).forEach((driver) => {
