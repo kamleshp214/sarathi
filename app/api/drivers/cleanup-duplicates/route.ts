@@ -16,27 +16,28 @@ export async function POST() {
   }
 
   // Group by name (case-insensitive)
-  type DriverType = typeof drivers[number]
-  const grouped = drivers.reduce((acc, driver) => {
+  const grouped: Record<string, Array<{ id: string; name: string; created_at: string }>> = {}
+  
+  for (const driver of drivers) {
     const key = driver.name.toLowerCase()
-    if (!acc[key]) {
-      acc[key] = []
+    if (!grouped[key]) {
+      grouped[key] = []
     }
-    acc[key].push(driver)
-    return acc
-  }, {} as Record<string, DriverType[]>)
+    grouped[key].push(driver)
+  }
 
   // For each group with duplicates, keep the most recent, deactivate others
   const toDeactivate: string[] = []
   
-  (Object.values(grouped) as DriverType[][]).forEach((group) => {
-    if (group.length > 1) {
+  for (const key in grouped) {
+    const group = grouped[key]
+    if (group && group.length > 1) {
       // Keep the first one (most recent due to ordering), deactivate the rest
-      group.slice(1).forEach((driver) => {
-        toDeactivate.push(driver.id)
-      })
+      for (let i = 1; i < group.length; i++) {
+        toDeactivate.push(group[i].id)
+      }
     }
-  })
+  }
 
   if (toDeactivate.length > 0) {
     const { error } = await supabase
