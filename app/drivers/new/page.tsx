@@ -14,13 +14,18 @@ export default function NewDriverPage() {
     const bhatta_rate = parseInt(formData.get('bhatta_rate') as string)
     const joining_date = formData.get('joining_date') as string
 
-    await supabase.from('drivers').insert({
+    const { data, error } = await supabase.from('drivers').insert({
       name,
       phone,
       base_salary,
       bhatta_rate,
       joining_date,
     })
+
+    if (error) {
+      console.error('Error creating driver:', error)
+      throw error
+    }
 
     revalidatePath('/dashboard')
     redirect('/dashboard')
